@@ -1,0 +1,11 @@
+.idea/
+.vscode/
+
+__pycache__/
+
+static-webpages/
+
+env/
+tmp/
+
+db.sqlite3
