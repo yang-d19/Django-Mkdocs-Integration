@@ -17,8 +17,8 @@ def send_mail(to, template, context):
 def send_activation_email(request, email, code):
 
     url = reverse('accounts:activate', kwargs={'code': code})
-    domain = request.get_host()
-    absolute_url = f"https://{domain}{url}"
+    # domain = request.get_host()
+    absolute_url = f"https://dagrad.site/{url}"
 
     context = {
         'subject': _('Profile activation'),
