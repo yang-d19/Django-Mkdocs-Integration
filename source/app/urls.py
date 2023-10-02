@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 
 from main.views import IndexPageView, ChangeLanguageView
 from django.views.generic import TemplateView
+from main.views import protected_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -17,8 +18,10 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
 
     path('homepage/friendlink/', TemplateView.as_view(template_name = 'main/homepage/friendlink/index.html')),
-    path('homepage/about/', TemplateView.as_view(template_name = 'main/homepage/about/index.html')),
+    # path('homepage/about/', TemplateView.as_view(template_name = 'main/homepage/about/index.html')),
     path('homepage/qa/', TemplateView.as_view(template_name = 'main/homepage/qa/index.html')),
+
+    path('homepage/about/', protected_page(path='main/homepage/qa/index.html')),
 
     path('other_departments/about/', TemplateView.as_view(template_name = "main/other_departments/about/index.html")),
     path('da/2019/23fall/CX/', IndexPageView.as_view(template_name = "main/da/2019/23fall/CX/index.html")),
