@@ -4,6 +4,7 @@ from django.template.loader import render_to_string
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
+domain_name = "https://dagrad.site"
 
 def send_mail(to, template, context):
     html_content = render_to_string(f'accounts/emails/{template}.html', context)
@@ -17,12 +18,10 @@ def send_mail(to, template, context):
 def send_activation_email(request, email, code):
 
     url = reverse('accounts:activate', kwargs={'code': code})
-    # domain = request.get_host()
-    absolute_url = f"https://dagrad.site/{url}"
+    absolute_url = f"{domain_name}{url}"
 
     context = {
         'subject': _('Profile activation'),
-        # 'uri': request.build_absolute_uri(reverse('accounts:activate', kwargs={'code': code})),
         'uri': absolute_url,
     }
 
@@ -30,19 +29,26 @@ def send_activation_email(request, email, code):
 
 
 def send_activation_change_email(request, email, code):
+
+    url = reverse('accounts:change_email_activation', kwargs={'code': code})
+    absolute_url = f"{domain_name}{url}"
+
     context = {
         'subject': _('Change email'),
-        'uri': request.build_absolute_uri(reverse('accounts:change_email_activation', kwargs={'code': code})),
+        'uri': absolute_url, 
     }
 
     send_mail(email, 'change_email', context)
 
 
 def send_reset_password_email(request, email, token, uid):
+
+    url = reverse('accounts:restore_password_confirm', kwargs={'uidb64': uid, 'token': token})
+    absolute_url = f"{domain_name}{url}"
+
     context = {
         'subject': _('Restore password'),
-        'uri': request.build_absolute_uri(
-            reverse('accounts:restore_password_confirm', kwargs={'uidb64': uid, 'token': token})),
+        'uri': absolute_url,
     }
 
     send_mail(email, 'restore_password_email', context)
