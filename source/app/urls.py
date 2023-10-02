@@ -53,7 +53,7 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    
+
 
 directory = "/home/ubuntu/dagrad-site/source/content/templates/main"  # Replace with the actual directory path
 
@@ -70,12 +70,12 @@ for root, dirs, files in os.walk(directory):
             url_path = relative_path.rsplit('/', 1)[0] + '/'
             template_name = 'main/' + relative_path
 
-            isProtected = False
+            isAdded = False
             for prefix in can_publish_prefix:
                 if relative_path.startswith(prefix):
-                    urlpatterns.append(path(url_path, IndexPageView.as_view(template_name=template_name)))
-                    isProtected = True
+                    urlpatterns.append(path(url_path, TemplateView.as_view(template_name=template_name)))
+                    isAdded = True
                     break
-            if not isProtected:
-                urlpatterns.append(path(url_path, TemplateView.as_view(template_name=template_name)))
-            
+            if not isAdded:
+                urlpatterns.append(path(url_path, IndexPageView.as_view(template_name=template_name)))
+
