@@ -150,4 +150,4 @@ LOCALE_PATHS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://yoris.top']
+CSRF_TRUSTED_ORIGINS = ['https://dagrad.site']
