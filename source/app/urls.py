@@ -7,6 +7,8 @@ from main.views import IndexPageView, ChangeLanguageView
 from django.views.generic import TemplateView
 # from main.views import protected_page
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -40,6 +42,9 @@ urlpatterns = [
 
     path('da/2019/23fall/DingYang/DingYang/', IndexPageView.as_view(template_name = "main/da/2019/23fall/DingYang/DingYang/index.html")),
     path('da/2019/23fall/Wenze/Wenze/', IndexPageView.as_view(template_name = "main/da/2019/23fall/Wenze/Wenze/index.html")),
+
+    path('da/2019/23fall/Wenze/SOP_CMU.pdf/', IndexPageView.as_view(template_name = "main/da/2019/23fall/Wenze/SOP_CMU.pdf")),
+
     path('da/2019/23fall/yyx/yyx/', IndexPageView.as_view(template_name = "main/da/2019/23fall/yyx/yyx/index.html")),
 
     path('da/2019/exam_for_postgraduate/about/', TemplateView.as_view(template_name = "main/da/2019/exam_for_postgraduate/about/index.html")),
