@@ -74,9 +74,14 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # 真正通过邮件服务器发送
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.163.com'
-EMAIL_HOST_USER = 'yangding19thu@163.com'
-DEFAULT_FROM_EMAIL = 'yangding19thu@163.com'
-EMAIL_HOST_PASSWORD = 'RJGFOWJQNRCGZAJX'
+# EMAIL_HOST_USER = 'yangding19thu@163.com'
+# DEFAULT_FROM_EMAIL = 'yangding19thu@163.com'
+# EMAIL_HOST_PASSWORD = 'RJGFOWJQNRCGZAJX'
+
+EMAIL_HOST_USER = 'dagrad_register@163.com'
+DEFAULT_FROM_EMAIL = 'dagrad_register@163.com'
+EMAIL_HOST_PASSWORD = 'MSTQKCKRGTZLRLKW'
+
 EMAIL_PORT = 465
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
