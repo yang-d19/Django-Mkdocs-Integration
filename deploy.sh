@@ -18,5 +18,5 @@ mv site main
 
 # restart the running gunicorn process
 pid=$(pstree -ap | grep -m 1 gunicorn | awk -F ',' '{print $2}' | awk -F ' ' '{print $1}’)
-kill -HUP pid
+kill -HUP '$pid'
 
